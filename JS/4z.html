@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--сделайте калькулятор, который будет находить площадь треугольникапо трем сторонам-->
+    <h1>калькулятор</h1>
+    <p>введите первую сторону треугольника</p><input type="text" id="one">
+    <p>введите вторую сторону треугольника</p><input type="text" id="two">
+    <p>введите третью сторону треугольника</p><input type="text" id="three">
+    <input type="button" onClick="count();" value="расчет"></button>
+    <p>площадь</p><input type="text" id="s">
+    <script>
+        function count()
+        {
+            var a=document.getElementById('one').value;
+             var b=document.getElementById('two').value;
+              var c=document.getElementById('three').value;
+              var p=(parseInt(a)+parseInt(b)+parseInt(c))/2;
+              var s=(Math.sqrt(p*(p-a)*(p-b)*(p-c)));
+              document.getElementById('s').value=Math.round(s);
+        }
+    </script>
+</body>
+</html>

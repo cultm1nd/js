@@ -1,0 +1,291 @@
+ЗАДАЧА 2
+2) <p>Введите стороны треугольника</p>
+   <div class="str">
+    <p>сторона 1 </p>
+    <input type="text" id="side1">
+   </div>
+   <div class="str">
+    <p>сторона 2</p>
+    <input type="text" id="side2">
+   </div>
+   <div class="str">
+    <p>сторона 3</p>
+    <input type="text" id="side3">
+   </div>
+   <input type="button" value="определить" onclick="GetAnswer();">
+   <p id="answer"></p>
+   <script>
+    function GetAnswer(){
+        var s1 = parseInt(document.getElementById('side1').value);
+        var s2 = parseInt(document.getElementById('side2').value);
+        var s3 = parseInt(document.getElementById('side3').value);
+        var max;
+        var sides;
+        var type;
+        if((s1+s2>s3||s2+s3>s1||s3+s1>s2)&&s1!=0&&s2!=0&&s3!=0)
+        {
+            if(s1>s2&&s1>s3)
+        {
+            max=s1;
+       if(Math.pow(max,2)<(Math.pow(s2,2)+Math.pow(s3,2)))type="остроугольный";
+       if(Math.pow(max,2)>(Math.pow(s2,2)+Math.pow(s3,2)))type="тупоугольный";
+        if(Math.pow(max,2)==(Math.pow(s2,2)+Math.pow(s3,2)))type="прямоугольный";
+     
+       }
+        else if(s2>s1&&s2>s3){
+            max=s2;
+            if(Math.pow(max,2)<(Math.pow(s1,2)+Math.pow(s3,2)))type="остроугольный";  
+        if(Math.pow(max,2)>(Math.pow(s1,2)+Math.pow(s3,2)))type="тупоугольный";
+        if(Math.pow(max,2)==(Math.pow(s1,2)+Math.pow(s3,2))) type="прямоугольный";
+      
+        }
+       else if(s3>s2&&s3>s1){
+        max=s3;
+        if(Math.pow(max,2)<Math.pow(s1,2)+Math.pow(s2,2)) type="остроугольный";
+        if(Math.pow(max,2)>Math.pow(s2,2)+Math.pow(s1,2)) type="тупоугольный";
+        if(Math.pow(max,2)==Math.pow(s2,2)+Math.pow(s1,2))type="прямоугольный";
+       }
+       if(s1!=s2&&s1!=s3&&s2!=s3)sides="разносторонний";
+       if(s1==s2&&s1==s3){
+        sides="равносторонний"
+       type="остроугольный";
+       }
+        else if(s1==s2||s2==s3||s1==s3){
+            sides="равнобедренный"
+            if((s1==s3&&s1<s2))
+            {
+                max=s2;
+                if(Math.pow(max,2)<Math.pow(s1,2)+Math.pow(s3,2))type="остроугольный";  
+        if(Math.pow(max,2)>Math.pow(s1,2)+Math.pow(s3,2))type="тупоугольный";
+        if(Math.pow(max,2)==Math.pow(s1,2)+Math.pow(s3,2)) type="прямоугольный";
+            }
+            if((s2==s3&&s2<s1)||(s2==s1&&s2>s3)||(s1==s3&&s1>s2)){
+                max=s1;
+       if(Math.pow(max,2)<Math.pow(s2,2)+Math.pow(s3,2))type="остроугольный";
+       if(Math.pow(max,2)>Math.pow(s2,2)+Math.pow(s3,2))type="тупоугольный";
+        if(Math.pow(max,2)==Math.pow(s2,2)+Math.pow(s3,2))type="прямоугольный";
+            }
+            if((s2==s1&&s2<s3)||(s2==s3&&s2>s1)){
+                max=s3;
+        if(Math.pow(max,2)<Math.pow(s1,2)+Math.pow(s2,2)) type="остроугольный";
+        if(Math.pow(max,2)>Math.pow(s2,2)+Math.pow(s1,2)) type="тупоугольный";
+        if(Math.pow(max,2)==Math.pow(s2,2)+Math.pow(s1,2))type="прямоугольный";
+            }
+        }
+        document.getElementById('answer').innerHTML=type+"    "+sides;
+     }
+       else
+        document.getElementById('answer').innerHTML="Треугольник не существует.";
+       
+    }
+
+
+
+
+ЗАДАЧА 4
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--4.Дано целое число k (1 ⩽ k ⩽ 365). Написать программу, определяющую день недели k-го дня года,
+если 1 января — понедельник.-->
+<p>введите число дня с условием, что k (1 ⩽ k ⩽ 365) </p><input type="text" id="day">
+<input type="button" onclick="count();" value="расчет" data-bs-toggle="tooltip" data-bs-html="true">
+<p>результат: </p><input type="text" id="total">
+<script>
+    function count()
+    {
+        var k=document.getElementById('day').value;
+        if(k>=1 && k<=365)
+        switch(k%7)
+        {
+        case 1:
+            document.getElementById('total').value="понедельник";
+            break;
+            case 2:
+            document.getElementById('total').value="вторник";
+            break;
+            case 3:
+            document.getElementById('total').value="среда";
+            break;
+            case 4:
+            document.getElementById('total').value="четверг";
+            break;
+            case 5:
+            document.getElementById('total').value="пятнциа";
+            break;
+            case 6:
+            document.getElementById('total').value="суббота";
+            break;
+            case 7:
+            document.getElementById('total').value="воскресенье";
+            break;
+            
+        }
+        else{
+            document.getElementById('total').value="неправильно введены данные";
+        }
+        
+        }
+        
+</script>
+</body>
+</html>
+
+
+ЗАДАЧА 5
+5) <p>Дано трёхзначное десятичное число, запись которого не содержит нулей. 
+        Написать программу, определяющую, сколько различных чисел можно составить из цифр этого числа, 
+        используя каждую цифру один раз.
+        (Например, из цифр числа 112 можно составить три числа: 112, 121 и 211.)
+    </p>
+    <p>Введите число</p>
+    <input type="text" id="num">
+    <input type="button" onclick="Combo();" value="определить">
+    <p id="answer"></p>
+    <p id="answer2"></p>
+    <script>
+          
+        function Combo(){
+           
+            var combination;
+            var str =document.getElementById('num').value;
+            var mas = [str.at(0),str.at(1),str.at(2)];//массив с числами строки
+            var com;
+            var P;
+            if(  str.at(0)!=0&&str.at(1)!=0&&str.at(2)!=0&&str.at(3)==undefined&&
+            isNaN(str.at(0)/2)===false&&  isNaN(str.at(1)/2)===false&&  isNaN(str.at(2)/2)===false)
+            {
+                if( str.at(0)==str.at(1)&&str.at(1)==str.at(2)&&str.at(2)==str.at(0)){
+                P=1;//расчет факториала числа 1
+                com = str.at(0)+""+str.at(1)+""+str.at(2);
+            document.getElementById('answer').innerHTML="Количество комбинаций = "+P+" комбинации: "+str;
+            }
+        
+            else if(str.at(0)!=null&&str.at(1)!=null&&str.at(2)!=null
+          &&
+            str.at(0)!=str.at(1)&&str.at(1)!=str.at(2)&&str.at(2)!=str.at(0))
+            {
+                P=1*2*3;//расчет факториала числа 3
+                com=str.at(0)+""+str.at(1)+""+str.at(2)+", "+
+                ""+str.at(0)+""+str.at(2)+""+str.at(1)+", "+
+                ""+str.at(1)+""+str.at(0)+""+str.at(2)+", "+
+                ""+str.at(1)+""+str.at(2)+""+str.at(0)+", "+
+                ""+str.at(2)+""+str.at(0)+""+str.at(1)+", "+
+                ""+str.at(2)+""+str.at(1)+""+str.at(0)+", ";
+            document.getElementById('answer').innerHTML="Количество комбинаций = "+P+" комбинации: "+com;
+            }
+            else if(str.at(2)==str.at(0)){
+                P=1*2+1;//расчет факториала числа 2
+                com = str.at(0)+""+str.at(1)+""+str.at(1)+", "+
+                ""+str.at(0)+""+str.at(0)+""+str.at(1)+", "+
+                ""+str.at(2)+""+str.at(1)+""+str.at(0)+", ";
+            document.getElementById('answer').innerHTML="Количество комбинаций = "+P+" комбинации: "+com;
+            }
+        else if( str.at(0)==str.at(1))
+        {
+            P=1*2+1;//расчет факториала числа 2
+                com = str.at(2)+""+str.at(1)+""+str.at(1)+", "+
+                ""+str.at(0)+""+str.at(0)+""+str.at(2)+", "+
+                ""+str.at(0)+""+str.at(2)+""+str.at(0)+", ";
+            document.getElementById('answer').innerHTML="Количество комбинаций = "+P+" комбинации: "+com;
+        }
+        else if(str.at(1)==str.at(2))
+        {
+            P=1*2+1;//расчет факториала числа 2
+                com = str.at(0)+""+str.at(1)+""+str.at(1)+", "+
+                ""+str.at(2)+""+str.at(0)+""+str.at(2)+", "+
+                ""+str.at(2)+""+str.at(2)+""+str.at(0)+", ";
+            document.getElementById('answer').innerHTML="Количество комбинаций = "+P+" комбинации: "+com;
+        }
+            }
+            else{
+                document.getElementById('answer').innerHTML="Некорректный ввод";
+            }
+           
+           
+     }
+  
+  
+  ЗАДАЧА 6
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--6.Дан объём информации I в байтах.Написать программу, выражающую его через байты, килобайты и мегабайты.
+ Например, 1234567 байт = 1 Мбайт 181 Кбайт 647 байт-->
+<p>введите объём информации(в байтах)</p><input type="text" id="v">
+<input type="button" onclick="count();" value="расчет">
+<p id="total"></p>
+<script>
+    function count()
+    {
+    var i=document.getElementById('v').value;
+    var d=parseInt(i);
+    var bit=d*8;
+    var kb=d/1024;
+    var gb=kb/1024;
+    var tr=gb/1024;
+    if(d<1000)
+    {
+        document.getElementById('total').innerHTML=d+ " байт= "+ bit +"бит="+ kb.toFixed(6)+"кб="+ gb.toFixed(6)+"гб="+tr.toFixed(9)+"тб";
+    }
+    if(d>=1000 && d<=10000)
+    {
+        document.getElementById('total').innerHTML=d+ " байт= "+ bit +"бит="+ kb.toFixed(5)+"кб="+ gb.toFixed(5)+"гб="+tr.toFixed(7)+"тб";
+    }
+    if(d>10000)
+    {
+        document.getElementById('total').innerHTML=d+ " байт= "+ bit +"бит="+ kb.toFixed(3)+"кб="+ gb.toFixed(3)+"гб="+tr.toFixed(5)+"тб";
+    }
+    }
+</script>
+</body>
+</html>
+
+
+ЗАДАЧА 7
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--7.Три точки на плоскости заданы своими координатами. Написать программу, определяющую, лежат ли они на одной прямой.-->
+<p>введите коордианты 1 точки(x;y)</p><input type="text" id="x1" size="1"><input type="text" id="y1" size="1">
+<p>введите коордианты 2 точки(x;y)</p><input type="text" id="x2" size="1"><input type="text" id="y2" size="1">
+<p>введите коордианты 3 точки(x;y)</p><input type="text" id="x3" size="1"><input type="text" id="y3" size="1">
+<input type="button" onclick="count();" value="расчет">
+<p id="total"></p>
+<script>
+    function count(){
+   var x1=document.getElementById('x1').value;
+   var y1=document.getElementById('y1').value;
+   var x2=document.getElementById('x2').value;
+   var y2=document.getElementById('y2').value;
+   var x3=document.getElementById('x3').value;
+   var y3=document.getElementById('y3').value;
+  if((parseInt(x1)-parseInt(x3))*(parseInt(y2)-parseInt(y3))-(parseInt(x2)-parseInt(x3))*(parseInt(y1)-parseInt(y3))==0)
+  {
+    document.getElementById('total').innerHTML="точки лежат на одной прямой";
+  }
+  else{
+    document.getElementById('total').innerHTML="точки не лежат на одной прямой";
+  }
+  }
+</script>
+</body>
+</html>

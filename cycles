@@ -426,7 +426,7 @@ summands(500);
 </body>
 </html>
 
-12 ЗАДАЧА
+12 ЗАДАЧА(YES)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -471,7 +471,7 @@ document.getElementById('total2').innerHTML="общий расход за 10 м�
 </body>
 </html>
 
-13 ЗАДАЧА
+13 ЗАДАЧА(YES)
 <!DOCTYPE html>
 <html lang="en">
 <head>

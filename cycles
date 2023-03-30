@@ -436,40 +436,38 @@ summands(500);
     <title>Document</title>
 </head>
 <body>
-    <h1>Task 12</h1>
-    <p>Ежемесячная стипендия студента составляет А р., а расходы на проживание превышают стипендию 
+    <!--Ежемесячная стипендия студента составляет А р., а расходы на проживание превышают стипендию 
         и составляют В р. в месяц. Рост цен ежемесячно увеличивает расходы на 3%. 
-        Определите какую сумму нужно иметь чтобы прожить 10 мес</p>
-       <p>Введите размер стипендии (A)<input id="a" type="text"> </p>
-       <p>Введите размер расходов в месяц (B)<input id="b" type="text"> </p>
-        <br>
-        <input type="button" onClick="count();" value="Вывести">
-        <br>
-        <p id = "ress"></p>
-        <p id = "sum"></p>
-        <p id = "res"></p>
-        <script>
-            function count(){
-                var a = document.getElementById("a").value;
-                var b = document.getElementById("b").value;
-                var stYear = parseInt(a)*10;
-                var sum2 = 0;
-                
-                for(var i=0; i<=10;i++){
-                    /* sum2+=parseInt(b);
-                      b=(parseInt(b)*1,03);*/
-                     sum2+=parseInt(b)*1,03;
-                }
-                document.getElementById("ress").innerHTML="Стипендия за 10 месяцев = " + stYear;
-                document.getElementById("sum").innerHTML="Расходы за 10 мес.=" + sum2;
-                if(stYear>sum2){
-                    document.getElementById("res").innerHTML="Хватит стипендии" ;
-                }
-                if(stYear<sum2){
-                    document.getElementById("res").innerHTML="Нехватает " ;
-                }
+        Определите какую сумму нужно иметь чтобы прожить 10 мес-->
+       <p>введите сумму стипендии</p> <input type="text" id="a">
+       <p>введите сумму расходов</p> <input type="text" id="b">
+       <input type="button" onclick="count();" value="определить">
+       <p id="total"> </p>
+       <p id="total2"> </p>
+       <p id="total3"> </p>
+       <script>
+function count()
+{
+var a=document.getElementById('a').value;
+var b=document.getElementById('b').value;
+var tm=parseInt(a)*10;//стипендия за 10 мес
+var sum=0;
+for(var i=0;i<=10;i++)
+{
+    sum+=parseInt(b)*1,03;
+}
+if(tm>sum)
+{
+    document.getElementById('total3').innerHTML="стипендии хватает";
+}
+if(tm<sum)
+{
+    document.getElementById('total3').innerHTML="стипендии не хватает";
+}
+document.getElementById('total').innerHTML="всего стипендии за 10 месяцев: "+ tm;
+document.getElementById('total2').innerHTML="общий расход за 10 месяцев: "+ sum;
             }
-        </script>
+       </script>
 </body>
 </html>
 
@@ -483,34 +481,25 @@ summands(500);
     <title>Document</title>
 </head>
 <body>
-    <h1>Task 13</h1>
-    <p>Остров Манхэттен был приобретен поселенцами за $24 в 1826 г. Каково было бы 
-        в настоящее время состояние их счета?</p>
-        <p>Начальная сумма = 24$</p>
-        <p>Введите год от которого оталкивапемся <input id="year" type="text"> </p>
-        <br>
-        <input type="button" onClick="count();" value="Вывести">
-        <br>
-        <p id = "promRes"></p>
-        <p id = "yyear"></p>
-        <p id = "ress">Cостояние их счета = </p>
+    <!--Остров Манхэттен был приобретен поселенцами за $24 в 1826 г. Каково было бы 
+        в настоящее время состояние их счета, если бы эти 24 доллара
+    были помещены тогда в банк под 6% годового дохода?-->
+        <p>введите текущий год</p><input type="text" id="year">
+        <input type="button" onclick="count();" value="определить">
+        <p id="total"></p>
         <script>
-            function count(){
-                var year = document.getElementById("year").value;
-                var yearCount = (parseInt(year)-1826);
-                var stoim = 24;
-                var sum=0;
-                var procent = 0.06;
-                for(var i=1;i<=yearCount;i++)
+            function count()
+            {
+                var year=document.getElementById('year').value;
+                var price=24;
+                var year2=parseInt(year)-1826;//сколько лет прошло до наст времени
+               var percent=0.06;
+                for(var i=0;i<=year2;i++)
                 {
-                    /*  document.getElementById("promRes").innerHTML +=  "stoim " + stoim + "<br>";*/
-
-                    a=parseInt(stoim)*parseFloat(procent);
-                    stoim+=parseFloat(a);
-                    
+                    a=parseInt(price)*parseFloat(percent);
+                    price+=parseFloat(a);
                 }
-                document.getElementById("yyear").innerHTML = "С момента приобретения Манхэттена переселенцами прошло: " + yearCount + "лет";
-                document.getElementById("ress").innerHTML = "Cостояние их счета =" + stoim.toFixed(2) + "$";
+                document.getElementById('total').innerHTML="состояние счета поселенцев: "+ price.toFixed(2) + "$";
             }
         </script>
 </body>

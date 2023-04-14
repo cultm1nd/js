@@ -1,0 +1,118 @@
+ЗАДАЧА 1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--1.В заданной строке поменять каждый символ строки предыдущим по таблице кодирования символом. -->
+    <P>введите символ</P><input type="text" id="str">
+    <input type="button" onclick="count();" value="получить">
+    <p id="total"></p>
+    <script>
+        function count()
+        {
+            var str=document.getElementById("str").value;
+            var total=0;
+            for(var i=0;i<str.length; i++) {
+                var code = str.charCodeAt(i)-1;
+                total+=String.fromCharCode(code);
+            }
+            document.getElementById("total").innerHTML=total;
+        }
+    </script>
+</body>
+</html>
+
+ЗАДАЧА 2
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--2.В заданной строке после каждого символа вставить число, соответствующее коду этого символа. -->
+    <script>
+    function myFunction(){
+        var str=document.getElementById("id1");
+        if (str.value=="") {
+           str.focus();
+           return;
+        }
+        var a="ASCII Code is == >  ";
+    document.getElementById("demo").innerHTML =a+str.value.charCodeAt(0);
+    }
+</script>
+    <p>Check ASCII code</p>
+    
+    <p>
+      Enter any character:  
+      <input type="text" id="id1" name="text1" maxLength="1">	</br>
+    </p>
+    
+    <button onclick="myFunction()">Get ASCII code</button>
+    
+    <p id="demo" style="color:red;"></p>
+</body>
+</html>
+
+ЗАДАЧА 3
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--3.Получить из заданной строки две строки, состоящие из символов первой строки, имеющих соответственно четные и нечетные индексы.-->
+    <P>введите строку</P><input type="text" id="str">
+    <input type="button" onclick="count();" value="получить">
+    <p id="total"></p>
+    <p id="total2"></p>
+    <script>
+        function count()
+        {
+            var str=document.getElementById("str").value;
+            var total="";
+            var total2="";
+            for(var i=0;i<str.length; i++) {
+                if (i%2==0)//четный индекс
+                {
+                    total=str[i];
+                    document.getElementById("total").innerHTML+=total;
+                }
+                else //нечетный индекс
+                {
+                   total2=str[i];
+                    document.getElementById("total2").innerHTML+=total2;
+                }
+                
+        }
+        }
+    </script>
+</body>
+</html>
+
+4.	Заданы две строки одинаковой длины. Построить новую строку, состоящую из символов как одной, так и другой строки, чередующихся между собой.
+5.	В строке после каждого слова дописать ее длину. 
+6.	Задана строка. Получить предпоследнее слово этой строки. Разделителем слов считаются один или несколько пробелов. 
+7.	В заданной строке заменить четное количество подряд идущих пробелов символом «Ч», а нечетное – символом «Н».
+8.	Для заданной строки после каждой русской буквы поставить ее код, а после каждой латинской – символ «».
+9.	В заданной строке, после каждого слова вида «sin», «cos» или «log», поставить скобку «(».
+10.	В заданной строке поменять местами первое и последнее слово строки. Разделителями слов считаются пробелы. 
+11.	Заданы две строки. Построить новую строку, состоящую из символов, которые входят в первую строку, но не входят во вторую.
+12.	В заданной строке заменить каждый символ «*» числом, соответствующим номеру по порядку вхождения этого символа в строку. 
+13.	В заданной строке заменить каждый символ «!» числом, равным индексу этого символа в строке.
+14.	В заданной строке заменить каждый символ строки следующим по коду символом. Букву «я» заменить пробелом. 
+15.	В заданной строке посчитать количество разных символов, входящих в эту строку. 
+16.	В заданной строке расположить в обратном порядке все слова. Разделителями слов считаются пробелы. 
+17.	В заданной строке посчитать количество слов, содержащих только строчные русские буквы. Разделителями слов считаются пробелы. 
+18.	По заданной строке получить массив слов, входящих в эту строку. Разделителями слов считаются пробелы.

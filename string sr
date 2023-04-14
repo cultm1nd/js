@@ -101,7 +101,45 @@
 </body>
 </html>
 
-4.	Заданы две строки одинаковой длины. Построить новую строку, состоящую из символов как одной, так и другой строки, чередующихся между собой.
+ЗАДАЧА 4
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--4.Заданы две строки одинаковой длины. Построить новую строку, состоящую из символов как одной, так и другой строки, чередующихся между собой.-->
+<p>ВВЕДИТЕ 2 СТРОКИ ОДИНАКОВОЙ ДЛИНЫ!</p>
+<P>1</P><input type="text" id="str1">
+<P>2</P><input type="text" id="str2">
+<input type="button" onclick="count();" value="выполнить">
+<p id="total"></p>
+<script>
+    function count()
+    {
+        var s1=document.getElementById('str1').value;
+        var s2=document.getElementById('str2').value;
+        var total='';
+        if(s1.length==s2.length)
+        {
+            for(var i=0;i<s1.length;i++)
+            {
+               total+=s1[i]+s2[i];
+            }
+            document.getElementById("total").innerHTML=total;
+        }
+        else{
+            document.getElementById("total").innerHTML="данные введены некорректно";
+        }
+
+    }
+</script>
+</body>
+</html> 
+
 5.	В строке после каждого слова дописать ее длину. 
 6.	Задана строка. Получить предпоследнее слово этой строки. Разделителем слов считаются один или несколько пробелов. 
 7.	В заданной строке заменить четное количество подряд идущих пробелов символом «Ч», а нечетное – символом «Н».

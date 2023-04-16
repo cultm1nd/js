@@ -140,8 +140,64 @@
 </body>
 </html> 
 
-5.	В строке после каждого слова дописать ее длину. 
-6.	Задана строка. Получить предпоследнее слово этой строки. Разделителем слов считаются один или несколько пробелов. 
+5 ЗАДАЧА
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--5.В строке после каждого слова дописать ее длину. -->
+    <p>введите строку, чтобы узнать ее длину</p><input type="text" id="str">
+    <input type="button" onclick="count();" value="узнать">
+      <p id="total"></p>
+      <script>
+        function count()
+        {
+            var str=document.getElementById('str').value;
+            if(str.lenght!=0)
+            {
+                document.getElementById('total')=str+" ;длина строки= "+str.lenght;
+            }
+            else{
+                document.getElementById('total')="данные введены некорректно";
+            }
+
+        }
+      </script>
+</body>
+</html>
+
+ЗАДАЧА 6
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--6.Задана строка. Получить предпоследнее слово этой строки. 
+        Разделителем слов считаются один или несколько пробелов. -->
+    <p>введите строку</p><input type="text" id="str">
+    <input type="button" onclick="count();" value="узнать">
+      <p id="total"></p>
+      <script>
+        function count()
+        {
+            var str=document.getElementById('str').value;
+            var words= str.split(' ');
+           document.getElementById('total')="предпоследнее слово: "+words.length-2;
+
+        }
+      </script>
+</body>
+</html>
+
 7.	В заданной строке заменить четное количество подряд идущих пробелов символом «Ч», а нечетное – символом «Н».
 8.	Для заданной строки после каждой русской буквы поставить ее код, а после каждой латинской – символ «».
 9.	В заданной строке, после каждого слова вида «sin», «cos» или «log», поставить скобку «(».

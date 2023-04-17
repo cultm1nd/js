@@ -151,27 +151,27 @@
 </head>
 <body>
     <!--5.В строке после каждого слова дописать ее длину. -->
-    <p>введите строку, чтобы узнать ее длину</p><input type="text" id="str">
+    <p>введите строку</p><input type="text" id="str">
     <input type="button" onclick="count();" value="узнать">
       <p id="total"></p>
       <script>
         function count()
         {
-            var str=document.getElementById('str').value;
-            if(str.lenght!=0)
-            {
-                document.getElementById('total')=str+" ;длина строки= "+str.lenght;
+            var str=document.getElementById("str").value;
+            var word=str.split(" ");
+            var total="";
+               for(var i=0;i<word.length; i++) 
+               {
+                total+=word[i]+word[i].length+" ";
+                
+               }
+               document.getElementById("total").innerHTML= total;
             }
-            else{
-                document.getElementById('total')="данные введены некорректно";
-            }
-
-        }
       </script>
 </body>
 </html>
 
-ЗАДАЧА 6
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -181,27 +181,135 @@
     <title>Document</title>
 </head>
 <body>
-    <!--6.Задана строка. Получить предпоследнее слово этой строки. 
+     <!--6.Задана строка. Получить предпоследнее слово этой строки. 
         Разделителем слов считаются один или несколько пробелов. -->
-    <p>введите строку</p><input type="text" id="str">
-    <input type="button" onclick="count();" value="узнать">
-      <p id="total"></p>
-      <script>
-        function count()
-        {
-            var str=document.getElementById('str').value;
-            var words= str.split(' ');
-           document.getElementById('total')="предпоследнее слово: "+words.length-2;
-
-        }
-      </script>
+    <p>введите строку</p><input type="text" id="sim">
+    <input type="button" onclick="count()" value="узнать">
+    <p id="total"></p>
+    <script>
+        function count() {
+            var str=document.getElementById("sim").value;
+            var word=str.split(/[' ', "  ", "   "]/);
+            var total="";
+            var max=-10;
+               for(var i=0;i<word.length; i++) {
+                if(i>max){
+                    max=i;
+                    total=word[max-1];
+                }
+               }
+               document.getElementById("total").innerHTML="предпоследнее слово: "+total;
+            }
+    </script>
 </body>
 </html>
 
 7.	В заданной строке заменить четное количество подряд идущих пробелов символом «Ч», а нечетное – символом «Н».
-8.	Для заданной строки после каждой русской буквы поставить ее код, а после каждой латинской – символ «».
-9.	В заданной строке, после каждого слова вида «sin», «cos» или «log», поставить скобку «(».
-10.	В заданной строке поменять местами первое и последнее слово строки. Разделителями слов считаются пробелы. 
+ЗАДАЧА 8
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--8.Для заданной строки после каждой русской буквы поставить ее код, а после каждой латинской – символ «».-->
+    <P>введите строку</P><input type="text" id="str">
+    <input type="button" onclick="count();" value="получить">
+    <p id="total"></p>
+    <script>
+        function count()
+        {
+            var str=document.getElementById("str").value;
+            var total="";
+            for(var i=0;i<str.length; i++) 
+            {   var code=str.charCodeAt(i);
+                if ((code >= 1040 && code <= 1103) || (code >= 1025 && code <= 1105))//rus
+                {
+                    total+=str[i] + code;
+                } 
+                else if ((code >= 65 && code <= 90) || (code >= 97 && code <= 122))//lat
+                {
+                    total+=str[i] + "«»";
+                } 
+                else {
+                    total+=str[i];
+                }
+            }
+            document.getElementById("total").innerHTML=total;
+        }
+    </script>
+</body>
+</html> 
+
+ЗАДАЧА 9
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--В заданной строке, после каждого слова вида «sin», «cos» или «log», поставить скобку «(».-->
+    <P>введите строку</P><input type="text" id="str">
+    <input type="button" onclick="count();" value="получить">
+    <p id="total"></p>
+    <script>
+        function count()
+        {
+            var str=document.getElementById("str").value;
+            var char=str.split(' ');
+            var total='';
+            for(var i=0;i<char.length; i++) 
+            {  
+                if(char[i] === "sin"||char[i] === "cos"||char[i] === "log")
+                {
+                 total+= char+"(";
+            }
+            else
+            {
+               total += char[i] + " ";
+            }
+            document.getElementById("total").innerHTML=total;
+        }
+    }
+    </script>
+</body>
+</html>
+
+ЗАДАЧА 10
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--10.В заданной строке поменять местами первое и последнее слово строки. Разделителями слов считаются пробелы.-->
+    <P>введите строку</P><input type="text" id="str">
+    <input type="button" onclick="count();" value="получить">
+    <p id="total"></p>
+    <script>
+        function count()
+        {
+            var str=document.getElementById("str").value;
+            var str2=str.split(' ');
+            var w1= str2[0];
+            var w2 =  str2[str2.length-1];
+            str2[0] = w2;
+            str2[str2.length-1] = w1;
+            document.getElementById("total").innerHTML= str2.join(" ");
+    }
+    </script>
+</body>
+</html>
+
 11.	Заданы две строки. Построить новую строку, состоящую из символов, которые входят в первую строку, но не входят во вторую.
 12.	В заданной строке заменить каждый символ «*» числом, соответствующим номеру по порядку вхождения этого символа в строку. 
 13.	В заданной строке заменить каждый символ «!» числом, равным индексу этого символа в строке.

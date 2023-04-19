@@ -310,11 +310,172 @@
 </body>
 </html>
 
-11.	Заданы две строки. Построить новую строку, состоящую из символов, которые входят в первую строку, но не входят во вторую.
-12.	В заданной строке заменить каждый символ «*» числом, соответствующим номеру по порядку вхождения этого символа в строку. 
-13.	В заданной строке заменить каждый символ «!» числом, равным индексу этого символа в строке.
-14.	В заданной строке заменить каждый символ строки следующим по коду символом. Букву «я» заменить пробелом. 
+ЗАДАЧА 11
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--11.	Заданы две строки. Построить новую строку, состоящую из символов, которые входят в первую строку, но не входят во вторую.-->
+    <P>введите строку 1</P><input type="text" id="str1">
+    <P>введите строку 2</P><input type="text" id="str2">
+    <input type="button" onclick="count();" value="построить">
+    <p id="total"></p>
+    <script>
+        function count()
+        {
+            var str1=document.getElementById("str1").value;
+            var str2=document.getElementById("str2").value;
+            var total='';
+           for(var i=0;i<str1.length;i++)
+           {
+            if(str2.includes(str1[i])==false)
+            {
+                 total+=str1[i];
+            }
+           }
+            document.getElementById('total').innerHTML=total;
+    }
+    </script>
+</body>
+</html>
+
+ЗАДАЧА 12
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--12.В заданной строке заменить каждый символ «*» числом, соответствующим номеру по порядку вхождения этого символа в строку.-->
+    <P>введите строку 1</P><input type="text" id="str1">
+    <input type="button" onclick="count();" value="заменить">
+    <p id="total"></p>
+    <script>
+        function count()
+        {
+            var str1=document.getElementById("str1").value;
+            var char=1;
+            var total='';
+           for(var i=0;i<str1.length;i++)
+           {
+            if(str1[i]==="*")
+            {
+                total+=char;
+                char++;
+            }
+            else{
+                total+=str1[i];
+            }
+           }
+            document.getElementById('total').innerHTML=total;
+    }
+    </script>
+</body>
+</html>
+
+ЗАДАЧА 13
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--13.	В заданной строке заменить каждый символ «!» числом, равным индексу этого символа в строке.-->
+    <P>введите строку 1</P><input type="text" id="str1">
+    <input type="button" onclick="count();" value="заменить">
+    <p id="total"></p>
+    <script>
+        function count()
+        {
+            var str1=document.getElementById("str1").value;
+            var char;
+            var total='';
+           for(var i=0;i<str1.length;i++)
+           {
+            if(str1[i]==="!")
+            {
+                total+=str1[i]+(i+1);
+             
+            }
+            else{
+                total+=str1[i];
+            }
+           }
+            document.getElementById('total').innerHTML=total;
+    }
+    </script>
+</body>
+</html>
+
+ЗАДАЧА 14
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--14.В заданной строке заменить каждый символ строки следующим по коду символом. Букву «я» заменить пробелом. -->
+    <P>введите строку </P><input type="text" id="str1">
+    <input type="button" onclick="count();" value="заменить">
+    <p id="total"></p>
+    <script>
+        function count()
+        {
+            var str1=document.getElementById("str1").value;
+            var total='';
+            for(var i=0;i<str1.length; i++) 
+            {
+                if(str1[i]==="я")
+                {
+                    total+=" ";
+                }
+                else
+                {
+                    var code = str1.charCodeAt(i);
+                    total+=String.fromCharCode(code+1);
+                }
+            }
+           
+            document.getElementById('total').innerHTML=total;
+    }
+    </script>
+</body>
+</html>
+
 15.	В заданной строке посчитать количество разных символов, входящих в эту строку. 
-16.	В заданной строке расположить в обратном порядке все слова. Разделителями слов считаются пробелы. 
+
+
+ЗАДАЧА 16
+    <!--16.	В заданной строке расположить в обратном порядке все слова. Разделителями слов считаются пробелы. -->
+    <P>введите строку </P><input type="text" id="str">
+    <input type="button" onclick="count();" value="изменить">
+    <p id="total"></p>
+    <script>
+        function count()
+        {  var str=document.getElementById("str").value;
+            var splitstr=str.split(' ');
+            var string=splitstr.reverse();
+            var total=string.join(' ');
+            document.getElementById("total").innerHTML=total;
+            
+    }
+    </script>
+</body>
+</html>
+
 17.	В заданной строке посчитать количество слов, содержащих только строчные русские буквы. Разделителями слов считаются пробелы. 
 18.	По заданной строке получить массив слов, входящих в эту строку. Разделителями слов считаются пробелы.

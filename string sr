@@ -205,6 +205,55 @@
 </html>
 
 7.	В заданной строке заменить четное количество подряд идущих пробелов символом «Ч», а нечетное – символом «Н».
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--В заданной строке заменить четное количество подряд идущих пробелов символом «Ч», а нечетное – символом «Н».-->
+    <p>введите строку</p><input type="text" id="str">
+    <input type="button" onclick="count()" value="узнать">
+    <p id="total"></p>
+    <script>
+        function count() {
+            var str=document.getElementById("str").value;
+           var string='';//чет или нечет
+           var space=0;//пробел
+           for(var i=0;i<str.length;i++)
+           {
+            if(str[i]==' ')
+            {
+              space++;
+            }
+            else{
+              if(space%2)
+              {
+                for(j=0;j<space;j++)
+                {
+                  string+="Ч";
+                }
+              }
+              else
+              {
+                for(j=0;j<space;j++)
+                {
+                  string+="Н";
+                }
+              }
+              string+=str[i];
+              space=0;
+
+            }
+           }
+           document.getElementById('total').innerHTML=string;
+            }
+    </script>
+</body>
+</html>
 ЗАДАЧА 8
 <!DOCTYPE html>
 <html lang="en">
@@ -478,4 +527,71 @@
 </html>
 
 17.	В заданной строке посчитать количество слов, содержащих только строчные русские буквы. Разделителями слов считаются пробелы. 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--17.	В заданной строке посчитать количество слов, содержащих только строчные русские буквы. Разделителями слов считаются пробелы. -->
+    <P>введите строку </P><input type="text" id="str">
+    <input type="button" onclick="count();" value="посчитать">
+    <p id="total"></p>
+    <script>
+        function count()
+        {
+            var str=document.getElementById("str").value;
+            var total='';
+            var string=str.split(/\s+/);//разбивает входной сигнал в соответствии с одним или несколькими символами пробела
+            var k=0;//кол-во
+            for(var i=0;i<string.length; i++)
+            {
+                var word=string[i];
+                var a=true;//строчные русский буквы
+                for(var j=0;j<word.length;j++)
+                {
+                    let code= word.charCodeAt(j);
+                    if (code < 1072 ||code > 1103) 
+                    { 
+                        a = false;
+                        break;
+                    }
+                    
+                }
+                if (a==true && word.trim()!=="") //позволяет удалить пробелы с обоих концов строки. 
+                { 
+                    k++; 
+                }
+            }
+           
+            document.getElementById('total').innerHTML="кол-во слов, содержащих только строчные русские буквы= "+k;
+    }
+    </script>
+</body>
+</html>
 18.	По заданной строке получить массив слов, входящих в эту строку. Разделителями слов считаются пробелы.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--18.	По заданной строке получить массив слов, входящих в эту строку. Разделителями слов считаются пробелы.-->
+    <P>введите строку </P><input type="text" id="str">
+    <input type="button" onclick="count();" value="посчитать">
+    <p id="total"></p>
+    <script>
+        function count()
+        {
+           var str=document.getElementById('str').value.split(' ');
+            document.getElementById('total').innerHTML=str;
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="calc_grid"><!--класс для разделения всех частей на гриды(отдельные блоки)-->
+    <div class="output"><!--выводит-->
+
+    <div class="d1">123+</div><!--предыдущее действие-->
+    <div class="d2">456</div><!--текущее действие-->
+    </div>
+    <!--вычислительные кнопки-->
+    <button data-all-clear class="button1">C</button><!--удаляет содержимое-очистка-->
+    <button data-delete>DEL</button>
+    <button data-number>7</button>
+    <button data-number>8</button>
+    <button data-number>9</button>
+    <button data-operation>÷</button>
+     <button data-number>4</button>
+     <button data-number>5</button>
+     <button data-number>6</button>
+     <button data-operation>*</button>
+     <button data-number>1</button>
+     <button data-number>2</button>
+     <button data-number>3</button>
+     <button data-operation>-</button>
+     <button data-number>0</button>
+     <button data-operation>.</button>
+     <button data-operation>+</button>
+     <button data-equals class="button2">=</button><!--выполняет действие "равно"-->
+
+    </div>
+    <script>
+    var numBut=document.querySelectorAll('[data-number]');//цифры
+    var operatoin=document.querySelectorAll('[data-operation]');//операции
+    var  clear=document.querySelectorAll('[data-all-clear]');//очистить
+
+    </script>
+</body>
+</html>

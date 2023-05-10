@@ -10,37 +10,49 @@
 <body>
 
     <div class="calc_grid"><!--класс для разделения всех частей на гриды(отдельные блоки)-->
-    <div class="output"><!--выводит-->
 
-    <div class="d1">123+</div><!--предыдущее действие-->
-    <div class="d2">456</div><!--текущее действие-->
+    <div class="output"><!--выводит-->
+        <input id="k" type="text">
     </div>
     <!--вычислительные кнопки-->
-    <button data-all-clear class="button1">C</button><!--удаляет содержимое-очистка-->
-    <button data-delete>DEL</button>
-    <button data-number>7</button>
-    <button data-number>8</button>
-    <button data-number>9</button>
-    <button data-operation>÷</button>
-     <button data-number>4</button>
-     <button data-number>5</button>
-     <button data-number>6</button>
-     <button data-operation>*</button>
-     <button data-number>1</button>
-     <button data-number>2</button>
-     <button data-number>3</button>
-     <button data-operation>-</button>
-     <button data-number>0</button>
-     <button data-operation>.</button>
-     <button data-operation>+</button>
-     <button data-equals class="button2">=</button><!--выполняет действие "равно"-->
+    <button onclick="clear()" class="button1">C</button><!--удаляет содержимое-очистка-->
+    <button onclick="delet()">⌦</button>
+    <button onclick="press('.')">.</button>
+    <button onclick="press('/')">÷</button>
+    <button onclick="press('7')">7</button>
+    <button onclick="press('8')">8</button>
+     <button onclick="press('9')">9</button>
+     <button onclick="press('*')">x</button>
+     <button onclick="press('4')">4</button>
+     <button onclick="press('5')">5</button>
+     <button onclick="press('6')">6</button>
+     <button onclick="press('-')">-</button>
+     <button onclick="press('1')">1</button>
+     <button onclick="press('2')">2</button>
+     <button onclick="press('3')">3</button>
+     <button onclick="press('+')">+</button>
+     <button onclick="press('0')">0</button>
+     <button class="button2" onclick="total()">=</button><!--выполняет действие "равно"-->
 
     </div>
     <script>
-    var numBut=document.querySelectorAll('[data-number]');//цифры
-    var operatoin=document.querySelectorAll('[data-operation]');//операции
-    var  clear=document.querySelectorAll('[data-all-clear]');//очистить
-
-    </script>
+    var output=document.getElementById('output');
+    function clear()
+    {
+        k.value="";
+    }
+    function total()
+    {
+        k.value=eval(k.value);//исполняет содержащееся в строке выражение
+    }
+    function press(x)
+    {
+        k.value+=x;
+    }
+    function delet()
+    {
+        k.value = k.value.slice(0, -1);//позволяет возвратить новый массив, который содержит копии элементов, вырезанных из исходного массива
+    }
+ </script>
 </body>
 </html>

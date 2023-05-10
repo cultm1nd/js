@@ -45,6 +45,17 @@ button{
     padding: 10px;
     background-color: rgb(161, 161, 159);
 }
+input
+{
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    width:370px;
+    height: 100px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+
+}
 .output .d1{
     color: rgba(255,255, 255, 0.75);
     font-size: 1.5rem;

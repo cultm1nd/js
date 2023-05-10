@@ -15,7 +15,7 @@
         <input id="k" type="text">
     </div>
     <!--вычислительные кнопки-->
-    <button onclick="clear()" class="button1">C</button><!--удаляет содержимое-очистка-->
+    <button onclick="clear1()" class="button1">C</button><!--удаляет содержимое-очистка-->
     <button onclick="delet()">⌦</button>
     <button onclick="press('.')">.</button>
     <button onclick="press('/')">÷</button>
@@ -37,13 +37,20 @@
     </div>
     <script>
     var output=document.getElementById('output');
-    function clear()
+    function clear1()
     {
         k.value="";
     }
     function total()
     {
         k.value=eval(k.value);//исполняет содержащееся в строке выражение
+        var total=eval(k.value);
+        try{
+       k.value=total;      
+        }
+    catch(err){
+        k.value='Error';
+        }
     }
     function press(x)
     {
